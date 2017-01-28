@@ -40,3 +40,11 @@ Here we want to collect some ideas that you should take into consideration if yo
 13. Do not include compiled binaries nor external source code within your version control system. Binaries should be either generated from the code base or should be provided by a package management system. External source code should be resolved with the installation mechanism (e.g. GNU Autotools, pip, Pom/Maven, etc.).
 
 14. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
+
+
+Authors
+-------
+
+
+
+
