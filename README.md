@@ -48,6 +48,8 @@ Here we want to collect some ideas that you should take into consideration if yo
 
 18. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
 
+19. Provide an accurate, but concise changelog between versions. This changelog should be easily understandable by the typical end user, and clearly note changes of importance, including changes in behavior and default settings, deprecated and new parameters, etc. It should not include changes that, while important, do not impact a typical end user, such as internal architectural changes. In other words, this is not simply the unannotated output of `git log`.
+
 
 Authors
 -------
