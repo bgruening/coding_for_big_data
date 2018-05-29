@@ -27,6 +27,8 @@ Here we want to collect some ideas that you should take into consideration if yo
   * If you for any reason can not reasonably take the exact file name for every output file (like if the number of outputs is unknown, or very large) but need to take a file name pattern - do allow to specify output folder in addition to the file name pattern
 
 9. Try to avoid using metadata files (file.ext + file.ext.ext2) but include metadata within a metadata or header section of a file format.
+  * Include enough information to unambiguously identify the filetype, version, and meaning behind values (e.g. column names).
+  * Also include information about the generating program, including version and complete set of parameters.
 
 10. Don’t write to stderr unless there is an error. stderr is only for error, don’t write warnings or any results to this output stream. For reporting errors, make use of functions that give a stack trace, to track the cause back more quickly.
 
@@ -36,13 +38,17 @@ Here we want to collect some ideas that you should take into consideration if yo
 
 13. Include a --version command to enable reproducibility by capturing the version number of your tool easily. Try to avoid to have the version number at multiple locations within your code; try to set your system up in such a way that the version definition is included. If possible, try to include the version control systems revision number into the output of the version (sometool v1.2.3-5483e9f5bf4d725e3).
 
-14. Do not reinvent the wheel, stick to your roots. E.g. if your tool consumes a multiple FASTA file and operates on each unit independently, it’s a good idea to split the FASTA file into small chunks and speed up your tool by using multiple processors. But this idea is handled by larger frameworks, don’t implement this by yourself. Similarly, make use of available libraries (e.g. biopython, pysam, seqan, biojava, biojs) and include the version of the used dependency in the installation script, but beware of licensing conflicts.
+14. Do not reuse or repurpose existing or previously used short or long argument names.
 
-15. Try to make use of the default installation mechanism for that particular language. There are many tools that do not obey these rules and required patching and additional scripting in order to get installed.
+15. Do not reinvent the wheel, stick to your roots. E.g. if your tool consumes a multiple FASTA file and operates on each unit independently, it’s a good idea to split the FASTA file into small chunks and speed up your tool by using multiple processors. But this idea is handled by larger frameworks, don’t implement this by yourself. Similarly, make use of available libraries (e.g. biopython, pysam, seqan, biojava, biojs) and include the version of the used dependency in the installation script, but beware of licensing conflicts.
 
-16. Do not include compiled binaries nor external source code within your version control system. Binaries should be either generated from the code base or should be provided by a package management system. External source code should be resolved with the installation mechanism (e.g. GNU Autotools, pip, Pom/Maven, etc.).
+16. Try to make use of the default installation mechanism for that particular language. There are many tools that do not obey these rules and required patching and additional scripting in order to get installed.
 
-17. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
+17. Do not include compiled binaries nor external source code within your version control system. Binaries should be either generated from the code base or should be provided by a package management system. External source code should be resolved with the installation mechanism (e.g. GNU Autotools, pip, Pom/Maven, etc.).
+
+18. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
+
+19. Provide an accurate, but concise changelog between versions. This changelog should be easily understandable by the typical end user, and clearly note changes of importance, including changes in behavior and default settings, deprecated and new parameters, etc. It should not include changes that, while important, do not impact a typical end user, such as internal architectural changes. In other words, this is not simply the unannotated output of `git log`.
 
 
 Authors
