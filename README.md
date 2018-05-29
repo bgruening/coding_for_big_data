@@ -27,6 +27,8 @@ Here we want to collect some ideas that you should take into consideration if yo
   * If you for any reason can not reasonably take the exact file name for every output file (like if the number of outputs is unknown, or very large) but need to take a file name pattern - do allow to specify output folder in addition to the file name pattern
 
 9. Try to avoid using metadata files (file.ext + file.ext.ext2) but include metadata within a metadata or header section of a file format.
+  * Include enough information to unambiguously identify the filetype, version, and meaning behind values (e.g. column names).
+  * Also include information about the generating program, including version and complete set of parameters.
 
 10. Don’t write to stderr unless there is an error. stderr is only for error, don’t write warnings or any results to this output stream. For reporting errors, make use of functions that give a stack trace, to track the cause back more quickly.
 
