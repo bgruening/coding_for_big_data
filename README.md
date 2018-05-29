@@ -38,13 +38,15 @@ Here we want to collect some ideas that you should take into consideration if yo
 
 13. Include a --version command to enable reproducibility by capturing the version number of your tool easily. Try to avoid to have the version number at multiple locations within your code; try to set your system up in such a way that the version definition is included. If possible, try to include the version control systems revision number into the output of the version (sometool v1.2.3-5483e9f5bf4d725e3).
 
-14. Do not reinvent the wheel, stick to your roots. E.g. if your tool consumes a multiple FASTA file and operates on each unit independently, it’s a good idea to split the FASTA file into small chunks and speed up your tool by using multiple processors. But this idea is handled by larger frameworks, don’t implement this by yourself. Similarly, make use of available libraries (e.g. biopython, pysam, seqan, biojava, biojs) and include the version of the used dependency in the installation script, but beware of licensing conflicts.
+14. Do not reuse or repurpose existing or previously used short or long argument names.
 
-15. Try to make use of the default installation mechanism for that particular language. There are many tools that do not obey these rules and required patching and additional scripting in order to get installed.
+15. Do not reinvent the wheel, stick to your roots. E.g. if your tool consumes a multiple FASTA file and operates on each unit independently, it’s a good idea to split the FASTA file into small chunks and speed up your tool by using multiple processors. But this idea is handled by larger frameworks, don’t implement this by yourself. Similarly, make use of available libraries (e.g. biopython, pysam, seqan, biojava, biojs) and include the version of the used dependency in the installation script, but beware of licensing conflicts.
 
-16. Do not include compiled binaries nor external source code within your version control system. Binaries should be either generated from the code base or should be provided by a package management system. External source code should be resolved with the installation mechanism (e.g. GNU Autotools, pip, Pom/Maven, etc.).
+16. Try to make use of the default installation mechanism for that particular language. There are many tools that do not obey these rules and required patching and additional scripting in order to get installed.
 
-17. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
+17. Do not include compiled binaries nor external source code within your version control system. Binaries should be either generated from the code base or should be provided by a package management system. External source code should be resolved with the installation mechanism (e.g. GNU Autotools, pip, Pom/Maven, etc.).
+
+18. Use the force Luke. The shebang is a powerful one line of code, but you should use it in a correct way. Use `/usr/bin/env python` or `/usr/bin/env perl` instead of `/usr/bin/perl`. It is not guaranteed that perl is installed in `/usr/bin/`. Especially not if you use concrete versions of a software in virtual environments, like conda is producing them.
 
 
 Authors
